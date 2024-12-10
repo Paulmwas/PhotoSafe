@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .quote {
+            font-style: italic;
+            margin-top: 20px;
+        }
+        .uploaded-image {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Uploaded Successfully!</h1>
+        <p>Your image has been uploaded successfully.</p>
+        <div class="uploaded-image">
+            <img src="{{ photo.image.url }}" alt="Uploaded Image">
+        </div>
+        <div class="quote">
+            <p id="random-quote"></p>
+        </div>
+    </div>
+
+    <script>
+        const quotes = [
+            "The best way to predict the future is to invent it. - Alan Kay",
+            "Life is 10% what happens to us and 90% how we react to it. - Charles R. Swindoll",
+            "The only way to do great work is to love what you do. - Steve Jobs",
+            "Success is not the key to happiness. Happiness is the key to success. - Albert Schweitzer",
+            "Your time is limited, don't waste it living someone else's life. - Steve Jobs"
+        ];
+
+        document.getElementById('random-quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
+    </script>
+</body>
+</html>

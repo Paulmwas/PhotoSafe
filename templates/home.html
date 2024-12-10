@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to PhotoSafe</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to PhotoSafe</h1>
+        <p>Your trusted platform to keep your photos safe and secure.</p>
+    </header>
+    <main>
+        <section>
+            <h2>Upload Your Images</h2>
+            <form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="image">Choose an image to upload:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <button type="submit">Upload</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 PhotoSafe. All rights reserved.</p>
+    </footer>
+</body>
+</html>
